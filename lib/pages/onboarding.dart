@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/services/support_widget.dart';
 
 class Onboarding extends StatefulWidget {
     const Onboarding({super.key});
@@ -37,11 +38,7 @@ class _OnboardingState extends State<Onboarding> {
                                     Text(
                                         'Manage Your Daily\nLife Expenses',
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: deviceHeight * 0.035,
-                                            fontWeight: FontWeight.bold
-                                        ),
+                                        style: AppWidget.headlineTextStyle(deviceHeight * 0.035),
                                     ),
 
                                     SizedBox(height: deviceHeight * 0.05),
@@ -76,11 +73,7 @@ class _OnboardingState extends State<Onboarding> {
                                                 child: Center(
                                                     child: Text(
                                                         'Get Started',
-                                                        style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: deviceWidth*0.06,
-                                                            fontWeight: FontWeight.bold,
-                                                        ),
+                                                        style: AppWidget.headlineTextStyle(deviceWidth*0.06),
                                                     ),
                                                 ),
                                             ),
