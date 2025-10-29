@@ -8,6 +8,8 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+    bool _obscurePassword = true;
+
     @override
     Widget build(BuildContext context) {
         final deviceWidth = MediaQuery.of(context).size.width;
@@ -59,7 +61,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             prefixIcon: Icon(
                                                 Icons.person,
                                                 size: deviceWidth * 0.08,
-                                                color: Color(0xff3d3e67),
+                                                color: Color(0xffdf815f),
                                             ),
                                         ),
                                     ),
@@ -87,7 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             prefixIcon: Icon(
                                                 Icons.mail,
                                                 size: deviceWidth * 0.07,
-                                                color: Color(0xff3d3e67),
+                                                color: Color(0xffdf815f),
                                             ),
                                         ),
                                     ),
@@ -100,25 +102,67 @@ class _SignUpPageState extends State<SignUpPage> {
                                 SizedBox(height: deviceHeight * 0.01),
 
                                 Container(
-                                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(10),
+                                    ),
+                                    
                                     child: TextField(
+                                        obscureText: _obscurePassword, // hides the text
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            
+
                                             hintText: 'Enter Password',
                                             hintStyle: TextStyle(
                                                 fontSize: deviceWidth * 0.05,
                                                 color: Colors.grey,
                                                 fontWeight: FontWeight.w400,
                                             ),
-                                            
+                                                
                                             prefixIcon: Icon(
                                                 Icons.lock,
                                                 size: deviceWidth * 0.07,
-                                                color: Color(0xff3d3e67),
+                                                color: Color(0xffdf815f),
+                                            ),
+                                            
+                                            suffixIcon: IconButton(
+                                                icon: Icon(
+                                                    _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                                                    color: Color(0xffdf815f),
+                                                ),
+                                                
+                                                onPressed: () {
+                                                    setState(() {
+                                                        _obscurePassword = !_obscurePassword;
+                                                    });
+                                                },
                                             ),
                                         ),
                                     ),
+                                ),
+                            
+                                SizedBox(height: deviceHeight * 0.04),
+                                
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                        Text(
+                                            'Already have an account? ',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: deviceWidth * 0.05,
+                                            ),
+                                        ),
+                                        
+                                        Text(
+                                            'Login',
+                                            style: TextStyle(
+                                                color: Color(0xffe8c5a5),
+                                                fontSize: deviceWidth * 0.05,
+                                                fontWeight: FontWeight.bold,
+                                            ),
+                                        ),
+                                    ],
                                 ),
                             ],
                         ),
