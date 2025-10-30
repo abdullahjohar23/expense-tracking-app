@@ -142,12 +142,40 @@ class _SignUpPageState extends State<SignUpPage> {
                                 ),
                             
                                 SizedBox(height: deviceHeight * 0.04),
+
+                                Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                        Text(
+                                            'Next',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: deviceWidth * 0.06,
+                                            ),
+                                        ),
+
+                                        SizedBox(width: deviceWidth * 0.07),
+
+                                        Container(
+                                            height: deviceHeight * 0.055,
+                                            width: deviceHeight * 0.055,
+                                            decoration: BoxDecoration(
+                                                color: Color(0xffdf815f),
+                                                borderRadius: BorderRadius.circular(60),
+                                            ),
+
+                                            child: Icon(Icons.arrow_forward, color: Colors.white,),
+                                        )
+                                    ],
+                                ),
+
+                                SizedBox(height: deviceHeight * 0.02),
                                 
                                 Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                         Text(
-                                            'Already have an account? ',
+                                            'Already have an account?  ',
                                             style: TextStyle(
                                                 color: Colors.white,
                                                 fontSize: deviceWidth * 0.05,
