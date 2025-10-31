@@ -1,3 +1,4 @@
+import 'package:expense_tracking/services/reusable_designs.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -41,63 +42,23 @@ class _SignUpPageState extends State<SignUpPage> {
 
                                 SizedBox(height: deviceHeight * 0.07),
 
-                                Text('Name', style: TextStyle(color: Colors.white, fontSize: deviceWidth * 0.06, fontWeight: FontWeight.w500),),
+                                LabelName(label: 'Name'),
                                 
                                 SizedBox(height: deviceHeight * 0.01),
 
-                                Container(
-                                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
-                                    child: TextField(
-                                        decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            
-                                            hintText: 'Enter Name',
-                                            hintStyle: TextStyle(
-                                                fontSize: deviceWidth * 0.05,
-                                                color: Colors.grey,
-                                                fontWeight: FontWeight.w400,
-                                            ),
-                                            
-                                            prefixIcon: Icon(
-                                                Icons.person,
-                                                size: deviceWidth * 0.08,
-                                                color: Color(0xffdf815f),
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                TextFieldDesign(hintMessage: 'Enter Name', iconName: Icons.person),
 
                                 SizedBox(height: deviceHeight * 0.04),
 
-                                Text('Gmail', style: TextStyle(color: Colors.white, fontSize: deviceWidth * 0.06, fontWeight: FontWeight.w500),),
-
+                                LabelName(label: 'Mail'),
+                                
                                 SizedBox(height: deviceHeight * 0.01),
 
-                                Container(
-                                    decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
-                                    child: TextField(
-                                        decoration: InputDecoration(
-                                            border: InputBorder.none,
-                                            
-                                            hintText: 'Enter Gmail',
-                                            hintStyle: TextStyle(
-                                                fontSize: deviceWidth * 0.05,
-                                                color: Colors.grey,
-                                                fontWeight: FontWeight.w400,
-                                            ),
-                                            
-                                            prefixIcon: Icon(
-                                                Icons.mail,
-                                                size: deviceWidth * 0.07,
-                                                color: Color(0xffdf815f),
-                                            ),
-                                        ),
-                                    ),
-                                ),
+                                TextFieldDesign(hintMessage: 'Enter Gmail', iconName: Icons.mail),
 
                                 SizedBox(height: deviceHeight * 0.04),
 
-                                Text('Password', style: TextStyle(color: Colors.white, fontSize: deviceWidth * 0.06, fontWeight: FontWeight.w500),),
+                                LabelName(label: 'Password'),
 
                                 SizedBox(height: deviceHeight * 0.01),
 
@@ -118,7 +79,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                                 color: Colors.grey,
                                                 fontWeight: FontWeight.w400,
                                             ),
-                                                
+                                            
                                             prefixIcon: Icon(
                                                 Icons.lock,
                                                 size: deviceWidth * 0.07,
