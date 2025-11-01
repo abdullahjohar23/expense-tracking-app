@@ -42,68 +42,37 @@ class _SignUpPageState extends State<SignUpPage> {
 
                                 SizedBox(height: deviceHeight * 0.07),
 
+                                //* Name Section Starts
                                 LabelName(label: 'Name'),
                                 
                                 SizedBox(height: deviceHeight * 0.01),
 
                                 TextFieldDesign(hintMessage: 'Enter Name', iconName: Icons.person),
+                                //* Name Section End
 
                                 SizedBox(height: deviceHeight * 0.04),
 
+                                //* Mail Section Starts
                                 LabelName(label: 'Mail'),
                                 
                                 SizedBox(height: deviceHeight * 0.01),
 
                                 TextFieldDesign(hintMessage: 'Enter Gmail', iconName: Icons.mail),
+                                //* Mail Section Ends
 
                                 SizedBox(height: deviceHeight * 0.04),
 
+                                //* Password Section Starts
                                 LabelName(label: 'Password'),
 
                                 SizedBox(height: deviceHeight * 0.01),
 
-                                Container(
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    
-                                    child: TextField(
-                                        obscureText: _obscurePassword, // hides the text
-                                        decoration: InputDecoration(
-                                            border: InputBorder.none,
-
-                                            hintText: 'Enter Password',
-                                            hintStyle: TextStyle(
-                                                fontSize: deviceWidth * 0.05,
-                                                color: Colors.grey,
-                                                fontWeight: FontWeight.w400,
-                                            ),
-                                            
-                                            prefixIcon: Icon(
-                                                Icons.lock,
-                                                size: deviceWidth * 0.07,
-                                                color: Color(0xffdf815f),
-                                            ),
-                                            
-                                            suffixIcon: IconButton(
-                                                icon: Icon(
-                                                    _obscurePassword ? Icons.visibility_off : Icons.visibility,
-                                                    color: Color(0xffdf815f),
-                                                ),
-                                                
-                                                onPressed: () {
-                                                    setState(() {
-                                                        _obscurePassword = !_obscurePassword;
-                                                    });
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            
+                                PasswordFieldDesign(obsPass: _obscurePassword, hintMessage: 'Enter Password'),
+                                //* Password Section Ends
+                                
                                 SizedBox(height: deviceHeight * 0.04),
 
+                                //* Go To Next
                                 Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
@@ -132,6 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                                 SizedBox(height: deviceHeight * 0.02),
                                 
+                                //* Already have an account? Label
                                 Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
