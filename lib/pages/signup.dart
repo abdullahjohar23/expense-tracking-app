@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/pages/login.dart';
 import 'package:expense_tracking/services/reusable_designs.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -20,7 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
             body: Stack(
                 children: [
                     Image.asset(
-                        'asset/background.jpg',
+                        'asset/signupbackground.jpg',
                         height: deviceHeight,
                         width: deviceWidth,
                         fit: BoxFit.cover,
@@ -95,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                             ),
 
                                             child: Icon(Icons.arrow_forward, color: Colors.white,),
-                                        )
+                                        ),
                                     ],
                                 ),
 
@@ -113,12 +114,17 @@ class _SignUpPageState extends State<SignUpPage> {
                                             ),
                                         ),
                                         
-                                        Text(
-                                            'Login',
-                                            style: TextStyle(
-                                                color: Color(0xffe8c5a5),
-                                                fontSize: deviceWidth * 0.05,
-                                                fontWeight: FontWeight.bold,
+                                        GestureDetector(
+                                            onTap: () {
+                                                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                                            },
+                                            child: Text(
+                                                'Login',
+                                                style: TextStyle(
+                                                    color: Color(0xffe8c5a5),
+                                                    fontSize: deviceWidth * 0.05,
+                                                    fontWeight: FontWeight.bold,
+                                                ),
                                             ),
                                         ),
                                     ],
