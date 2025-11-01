@@ -1,5 +1,5 @@
-import 'package:expense_tracking/services/reusable_designs.dart';
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/services/reusable_designs.dart';
 
 class SignUpPage extends StatefulWidget {
     const SignUpPage({super.key});
@@ -9,7 +9,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-    bool _obscurePassword = true;
+    bool obscurePassword = true;
 
     @override
     Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
                                 SizedBox(height: deviceHeight * 0.01),
 
-                                PasswordFieldDesign(obsPass: _obscurePassword, hintMessage: 'Enter Password'),
+                                PasswordFieldDesign(obsPass: obscurePassword, hintMessage: 'Enter Password'),
                                 //* Password Section Ends
                                 
                                 SizedBox(height: deviceHeight * 0.04),
