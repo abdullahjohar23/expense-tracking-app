@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/pages/login.dart';
 import 'package:expense_tracking/services/support_widget.dart';
 
 class Onboarding extends StatefulWidget {
@@ -71,9 +72,19 @@ class _OnboardingState extends State<Onboarding> {
                                                 decoration: BoxDecoration(color: Color(0xffee6856), borderRadius: BorderRadius.circular(12)),
                                                 
                                                 child: Center(
-                                                    child: Text(
-                                                        'Get Started',
-                                                        style: AppWidget.headlineTextStyle(deviceWidth*0.06),
+                                                    child: GestureDetector(
+                                                        onTap: () {
+                                                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                                                        },
+                                                        
+                                                        child: Text(
+                                                            'Get Started',
+                                                            style: TextStyle(
+                                                                color: Colors.white,
+                                                                fontSize: deviceWidth*0.06,
+                                                                fontWeight: FontWeight.bold,
+                                                            ),
+                                                        ),
                                                     ),
                                                 ),
                                             ),
