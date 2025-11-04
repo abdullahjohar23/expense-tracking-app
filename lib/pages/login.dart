@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:expense_tracking/pages/signup.dart';
 import 'package:expense_tracking/services/reusable_designs.dart';
 
@@ -16,6 +17,33 @@ class _LoginPageState extends State<LoginPage> {
 
     TextEditingController mailController = new TextEditingController();
     TextEditingController passwordController = new TextEditingController();
+
+    Future<void> userLogin() async {
+        try {
+            // UserCredential userCredential = [uncomment this if you need to use userCredential]
+            await FirebaseAuth.instance.signInWithEmailAndPassword(
+                email: mailController.text.trim(),
+                password: passwordController.text.trim(),
+            );
+
+            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+        } on FirebaseAuthException catch (e) {
+            if (e.code == 'user-not-found') {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    ScaffoldText.show('No account found', Colors.red, context),
+                );
+            } else if (e.code == 'wrong-password') {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    ScaffoldText.show('Wrong Password', Colors.red, context),
+                );
+            }
+        } catch (e) {
+            print('Unexpected error: $e');
+            ScaffoldMessenger.of(context).showSnackBar(
+                ScaffoldText.show('Something went wrong: $e', Colors.red, context),
+            );
+        }
+    }
 
     @override
     Widget build(BuildContext context) {
@@ -88,15 +116,28 @@ class _LoginPageState extends State<LoginPage> {
 
                                         SizedBox(width: deviceWidth * 0.07),
 
-                                        Container(
-                                            height: deviceHeight * 0.055,
-                                            width: deviceHeight * 0.055,
-                                            decoration: BoxDecoration(
-                                                color: Color(0xffdf815f),
-                                                borderRadius: BorderRadius.circular(60),
-                                            ),
+                                        GestureDetector(
+                                            onTap: () {
+                                                if (mailController.text != "" && passwordController.text != "") {
+                                                    setState(() {
+                                                        email = mailController.text;
+                                                        password = passwordController.text;
+                                                    });
 
-                                            child: Icon(Icons.arrow_forward, color: Colors.white,),
+                                                    userLogin();
+                                                }
+                                            },
+
+                                            child: Container(
+                                                height: deviceHeight * 0.055,
+                                                width: deviceHeight * 0.055,
+                                                decoration: BoxDecoration(
+                                                    color: Color(0xffdf815f),
+                                                    borderRadius: BorderRadius.circular(60),
+                                                ),
+                                            
+                                                child: Icon(Icons.arrow_forward, color: Colors.white,),
+                                            ),
                                         ),
                                     ],
                                 ),
