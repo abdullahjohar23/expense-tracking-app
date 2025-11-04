@@ -25,7 +25,8 @@ class _SignUpPageState extends State<SignUpPage> {
     Future<void> registration() async {        
         if (nameController.text != "" && mailController.text != "" && passwordController.text != "") {
             try {
-                UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                // UserCredential userCredential = [uncomment this if you need to use userCredential]
+                await FirebaseAuth.instance.createUserWithEmailAndPassword(
                     email: mailController.text.trim(),
                     password: passwordController.text.trim(),
                 );
