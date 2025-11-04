@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+//* Label
 class LabelName extends StatelessWidget {
     final String label;
     
     const LabelName({
         required this.label,
-        super.key});
+        super.key
+    });
 
     @override
     Widget build(BuildContext context) {
@@ -22,13 +24,16 @@ class LabelName extends StatelessWidget {
     }
 }
 
+//* Text Field
 class TextFieldDesign extends StatelessWidget {
     final String hintMessage;
     final IconData iconName;
+    final TextEditingController controller;
 
     const TextFieldDesign({
         required this.hintMessage,
         required this.iconName,
+        required this.controller,
         super.key
     });
 
@@ -39,6 +44,8 @@ class TextFieldDesign extends StatelessWidget {
         return Container(
             decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
             child: TextField(
+                controller: controller,
+
                 decoration: InputDecoration(
                     border: InputBorder.none,
                     
@@ -60,13 +67,16 @@ class TextFieldDesign extends StatelessWidget {
     }
 }
 
+//* Password Field
 class PasswordFieldDesign extends StatefulWidget {
     final bool obsPass;
     final String hintMessage;
+    final TextEditingController controller;
 
     const PasswordFieldDesign({
         required this.obsPass,
         required this.hintMessage,
+        required this.controller,
         super.key,
     });
 
@@ -94,6 +104,8 @@ class _PasswordFieldDesignState extends State<PasswordFieldDesign> {
             ),
             
             child: TextField(
+                controller: widget.controller,
+                
                 obscureText: _obscurePassword,
                 decoration: InputDecoration(
                     border: InputBorder.none,
@@ -129,28 +141,29 @@ class _PasswordFieldDesignState extends State<PasswordFieldDesign> {
     }
 }
 
-class ScaffoldText extends StatelessWidget {
-    final String message;
-    final Color color;
-    
-    const ScaffoldText({
-        required this.message,
-        required this.color,
-        super.key
-    });
-
-    @override
-    Widget build(BuildContext context) {
+//* Snackbar Message
+class ScaffoldText {
+    static SnackBar show(String message, Color color, BuildContext context) {
         final deviceWidth = MediaQuery.of(context).size.width;
 
         return SnackBar(
             backgroundColor: color,
+            behavior: SnackBarBehavior.floating,
+            
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+            ),
+            
             content: Text(
                 message,
                 style: TextStyle(
-                    fontSize: deviceWidth * 0.05,
+                    fontSize: deviceWidth * 0.045,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
                 ),
             ),
+            
+            duration: const Duration(seconds: 2),
         );
     }
 }
