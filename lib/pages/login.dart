@@ -12,6 +12,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
     bool obscurePassword = true;
 
+    String name = "", email = "", password = "";
+
+    TextEditingController mailController = new TextEditingController();
+    TextEditingController passwordController = new TextEditingController();
+
     @override
     Widget build(BuildContext context) {
         final deviceWidth = MediaQuery.of(context).size.width;
@@ -54,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                                 
                                 SizedBox(height: deviceHeight * 0.01),
 
-                                TextFieldDesign(hintMessage: 'Enter Gmail', iconName: Icons.mail),
+                                TextFieldDesign(hintMessage: 'Enter Gmail', iconName: Icons.mail, controller: mailController),
                                 //* Mail Section Ends
 
                                 SizedBox(height: deviceHeight * 0.04),
@@ -64,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
 
                                 SizedBox(height: deviceHeight * 0.01),
 
-                                PasswordFieldDesign(obsPass: obscurePassword, hintMessage: 'Enter Password'),
+                                PasswordFieldDesign(obsPass: obscurePassword, hintMessage: 'Enter Password', controller: passwordController),
                                 //* Password Section Ends
                                 
                                 SizedBox(height: deviceHeight * 0.04),
