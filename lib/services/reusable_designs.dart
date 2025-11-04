@@ -128,3 +128,29 @@ class _PasswordFieldDesignState extends State<PasswordFieldDesign> {
         );
     }
 }
+
+class ScaffoldText extends StatelessWidget {
+    final String message;
+    final Color color;
+    
+    const ScaffoldText({
+        required this.message,
+        required this.color,
+        super.key
+    });
+
+    @override
+    Widget build(BuildContext context) {
+        final deviceWidth = MediaQuery.of(context).size.width;
+
+        return SnackBar(
+            backgroundColor: color,
+            content: Text(
+                message,
+                style: TextStyle(
+                    fontSize: deviceWidth * 0.05,
+                ),
+            ),
+        );
+    }
+}
