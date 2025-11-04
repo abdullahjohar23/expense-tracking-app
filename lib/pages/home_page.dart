@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:expense_tracking/pages/login.dart';
 import 'package:expense_tracking/services/support_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +11,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+    Future<void> logout() async {
+        await FirebaseAuth.instance.signOut();
+        
+        // if (context.mounted) means “Is this widget still alive and connected to the screen?”
+        if (context.mounted) {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+            );
+        }
+    }
+
     @override
     Widget build(BuildContext context) {
         final deviceWidth = MediaQuery.of(context).size.width;
@@ -112,6 +126,15 @@ class _HomePageState extends State<HomePage> {
                             ),  
                         ),
                     ],
+                ),
+            ),
+
+            floatingActionButton: Padding(
+                padding: EdgeInsets.only(right: deviceWidth * 0.04, bottom: deviceWidth * 0.06),
+                child: FloatingActionButton(
+                    backgroundColor: Color(0xffee6856),
+                    onPressed: () => logout(),
+                    child: const Icon(Icons.logout, color: Colors.white),
                 ),
             ),
         );
