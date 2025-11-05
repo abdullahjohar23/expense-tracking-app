@@ -6,7 +6,7 @@ class ProfilePage extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         final deviceWidth = MediaQuery.of(context).size.width;
-        // final deviceHeight = MediaQuery.of(context).size.height;
+        final deviceHeight = MediaQuery.of(context).size.height;
         
         return Scaffold(
             backgroundColor: Colors.white,
@@ -34,8 +34,26 @@ class ProfilePage extends StatelessWidget {
                 centerTitle: true,
             ),
 
-            body: Center(
-                child: Text('Profile Page')
+            body: Padding(
+                padding: EdgeInsets.only(top: deviceWidth * 0.08),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                        Column(
+                            children: [
+                                ClipRRect(
+                                    borderRadius: BorderRadius.circular(60),
+                                    child: Image.asset('asset/abdullahprofile.jpg',
+                                        height: deviceHeight * 0.17,
+                                        fit: BoxFit.cover,
+                                    ),
+                                ),
+
+                                
+                            ],
+                        ),
+                    ],
+                ),
             ),
         );
     }
