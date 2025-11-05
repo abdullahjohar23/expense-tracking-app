@@ -42,14 +42,14 @@ class ProfilePage extends StatelessWidget {
                         Column(
                             children: [
                                 ClipRRect(
-                                    borderRadius: BorderRadius.circular(60),
+                                    borderRadius: BorderRadius.circular(70),
                                     child: Image.asset('asset/abdullahprofile.jpg',
-                                        height: deviceHeight * 0.17,
+                                        height: deviceHeight * 0.13,
                                         fit: BoxFit.cover,
                                     ),
                                 ),
 
-                                
+
                             ],
                         ),
                     ],
