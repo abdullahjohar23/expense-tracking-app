@@ -1,3 +1,4 @@
+import 'package:expense_tracking/services/reusable_designs.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:expense_tracking/pages/login.dart';
@@ -19,6 +20,10 @@ class _HomePageState extends State<HomePage> {
             Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginPage()),
+            );
+
+            ScaffoldMessenger.of(context).showSnackBar(
+                ScaffoldText.show('Successfully Logged Out!', Colors.green, context),
             );
         }
     }
