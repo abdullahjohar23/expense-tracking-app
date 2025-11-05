@@ -1,3 +1,4 @@
+import 'package:expense_tracking/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:expense_tracking/pages/signup.dart';
@@ -26,7 +27,12 @@ class _LoginPageState extends State<LoginPage> {
                 password: passwordController.text.trim(),
             );
 
-            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+            // Using pushReplacement instead of push so the user can’t go back to the login screen with the back button
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+
+            ScaffoldMessenger.of(context).showSnackBar(
+                ScaffoldText.show('Successfully logged in', Colors.green, context),
+            );
         } on FirebaseAuthException catch (e) {
             if (e.code == 'user-not-found') {
                 ScaffoldMessenger.of(context).showSnackBar(
