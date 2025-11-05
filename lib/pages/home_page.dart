@@ -1,8 +1,9 @@
-import 'package:expense_tracking/services/reusable_designs.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:expense_tracking/pages/login.dart';
+import 'package:expense_tracking/pages/profile.dart';
 import 'package:expense_tracking/services/support_widget.dart';
+import 'package:expense_tracking/services/reusable_designs.dart';
 
 class HomePage extends StatefulWidget {
     const HomePage({super.key});
@@ -58,11 +59,34 @@ class _HomePageState extends State<HomePage> {
                                     ],
                                 ),
 
-                                ClipRRect(
-                                    borderRadius: BorderRadiusGeometry.circular(60),
-                                    child: Image.asset('asset/abdullahprofile.jpg',
-                                        width: deviceWidth * 0.17,
-                                        fit: BoxFit.cover,
+                                GestureDetector(
+                                    onTap: () {
+                                        Navigator.push(
+                                            context,
+                                            PageRouteBuilder(
+                                            transitionDuration: Duration(milliseconds: 200), // speed of animation
+                                            reverseTransitionDuration: Duration(milliseconds: 200), // backward
+                                            pageBuilder: (context, animation, secondaryAnimation) => ProfilePage(),
+                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                                const begin = Offset(1.0, 0.0); // start from right side
+                                                const end = Offset.zero; // end at center
+                                                final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOut));
+
+                                                return SlideTransition(
+                                                    position: animation.drive(tween),
+                                                    child: child,
+                                                );
+                                            },
+                                            ),
+                                        );
+                                    },
+
+                                    child: ClipRRect(
+                                        borderRadius: BorderRadiusGeometry.circular(60),
+                                        child: Image.asset('asset/abdullahprofile.jpg',
+                                            width: deviceWidth * 0.17,
+                                            fit: BoxFit.cover,
+                                        ),
                                     ),
                                 ),
                             ],
