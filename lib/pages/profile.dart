@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/services/reusable_designs.dart';
 
 class ProfilePage extends StatelessWidget {
     const ProfilePage({super.key});
@@ -35,11 +36,11 @@ class ProfilePage extends StatelessWidget {
             ),
 
             body: Padding(
-                padding: EdgeInsets.only(top: deviceWidth * 0.08),
-                child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                padding: EdgeInsets.only(top: deviceWidth * 0.08, left: deviceWidth * 0.07, right: deviceWidth * 0.07),
+                child: Column(
                     children: [
-                        Column(
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                                 ClipRRect(
                                     borderRadius: BorderRadius.circular(70),
@@ -48,10 +49,17 @@ class ProfilePage extends StatelessWidget {
                                         fit: BoxFit.cover,
                                     ),
                                 ),
-
-
                             ],
                         ),
+
+                        SizedBox(height: deviceWidth * 0.08),
+
+                        // Name
+                        ProfileInfoTile(text: 'Abdullah', prefixicon: Icons.person),
+
+                        // Gmail
+                        ProfileInfoTile(text: 'abdullah@gmail.com', prefixicon: Icons.mail),
+                        ProfileInfoTile(text: 'Logout', prefixicon: Icons.logout, suffixicon: Icons.chevron_right),
                     ],
                 ),
             ),
