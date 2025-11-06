@@ -167,3 +167,58 @@ class ScaffoldText {
         );
     }
 }
+
+//* Profile Info Tile
+class ProfileInfoTile extends StatelessWidget {
+    final String text;
+    final IconData prefixicon;
+    final IconData? suffixicon;
+
+    const ProfileInfoTile({
+        required this.text,
+        required this.prefixicon,
+        this.suffixicon,
+        super.key
+    });
+
+    @override
+    Widget build(BuildContext context) {
+        final deviceWidth = MediaQuery.of(context).size.width;
+        final deviceHeight = MediaQuery.of(context).size.height;
+
+        return Container(
+            height: deviceHeight * 0.06,
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            margin: EdgeInsets.only(bottom: deviceWidth * 0.05),
+            
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Color(0xffee6856),
+            ),
+
+            child: Row(
+                children: [
+                    Icon(prefixicon, color: Colors.white, size: deviceWidth * 0.08),
+                
+                    SizedBox(width: deviceWidth * 0.04),
+                
+                    Expanded(
+                        child: Text(
+                            text,
+                            style: TextStyle(fontSize: deviceWidth * 0.05, color: Colors.white, fontWeight: FontWeight.w500),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                        ),
+                    ),
+                
+                    if (suffixicon != null) ...[
+                        SizedBox(width: deviceWidth * 0.02),
+                        
+                        Icon(suffixicon, color: Colors.white, size: deviceWidth * 0.08),
+                    ],
+                ],
+            ),
+        );
+    }
+}
