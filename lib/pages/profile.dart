@@ -55,11 +55,22 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(height: deviceWidth * 0.08),
 
                         // Name
-                        ProfileInfoTile(text: 'Abdullah', prefixicon: Icons.person),
+                        ProfileInfoTile(text: 'Abdullah Johar', prefixicon: Icons.person),
 
                         // Gmail
                         ProfileInfoTile(text: 'abdullah@gmail.com', prefixicon: Icons.mail),
+
+                        // Income
+                        ProfileInfoTile(text: 'Add Icome', prefixicon: Icons.attach_money, suffixicon: Icons.chevron_right),
+
+                        // Expense
+                        ProfileInfoTile(text: 'Add Expense', prefixicon: Icons.payment, suffixicon: Icons.chevron_right),
+
+                        // Logout
                         ProfileInfoTile(text: 'Logout', prefixicon: Icons.logout, suffixicon: Icons.chevron_right),
+
+                        // Delete Account
+                        ProfileInfoTile(text: 'Delete Account', prefixicon: Icons.delete, suffixicon: Icons.chevron_right),
                     ],
                 ),
             ),
