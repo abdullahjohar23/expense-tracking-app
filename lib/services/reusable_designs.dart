@@ -189,7 +189,7 @@ class ProfileInfoTile extends StatelessWidget {
         return Container(
             height: deviceHeight * 0.06,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 25),
+            padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.04),
             margin: EdgeInsets.only(bottom: deviceWidth * 0.05),
             
             decoration: BoxDecoration(
