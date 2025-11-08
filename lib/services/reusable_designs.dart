@@ -173,11 +173,13 @@ class ProfileInfoTile extends StatelessWidget {
     final String text;
     final IconData prefixicon;
     final IconData? suffixicon;
+    final VoidCallback? onTap;
 
     const ProfileInfoTile({
         required this.text,
         required this.prefixicon,
         this.suffixicon,
+        this.onTap,
         super.key
     });
 
@@ -186,38 +188,42 @@ class ProfileInfoTile extends StatelessWidget {
         final deviceWidth = MediaQuery.of(context).size.width;
         final deviceHeight = MediaQuery.of(context).size.height;
 
-        return Container(
-            height: deviceHeight * 0.06,
-            width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.04),
-            margin: EdgeInsets.only(bottom: deviceWidth * 0.05),
+        return GestureDetector(
+            onTap: onTap,
             
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: Color(0xffee6856),
-            ),
-
-            child: Row(
-                children: [
-                    Icon(prefixicon, color: Colors.white, size: deviceWidth * 0.08),
+            child: Container(
+                height: deviceHeight * 0.06,
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.04),
+                margin: EdgeInsets.only(bottom: deviceWidth * 0.05),
                 
-                    SizedBox(width: deviceWidth * 0.04),
-                
-                    Expanded(
-                        child: Text(
-                            text,
-                            style: TextStyle(fontSize: deviceWidth * 0.05, color: Colors.white, fontWeight: FontWeight.w500),
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Color(0xffee6856),
+                ),
+            
+                child: Row(
+                    children: [
+                        Icon(prefixicon, color: Colors.white, size: deviceWidth * 0.08),
+                    
+                        SizedBox(width: deviceWidth * 0.04),
+                    
+                        Expanded(
+                            child: Text(
+                                text,
+                                style: TextStyle(fontSize: deviceWidth * 0.05, color: Colors.white, fontWeight: FontWeight.w500),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                            ),
                         ),
-                    ),
-                
-                    if (suffixicon != null) ...[
-                        SizedBox(width: deviceWidth * 0.02),
-                        
-                        Icon(suffixicon, color: Colors.white, size: deviceWidth * 0.08),
+                    
+                        if (suffixicon != null) ...[
+                            SizedBox(width: deviceWidth * 0.02),
+                            
+                            Icon(suffixicon, color: Colors.white, size: deviceWidth * 0.08),
+                        ],
                     ],
-                ],
+                ),
             ),
         );
     }
