@@ -1,6 +1,6 @@
-import 'package:expense_tracking/services/support_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/services/support_widget.dart';
 
 class ExpensePage extends StatefulWidget {
     const ExpensePage({super.key});
@@ -73,27 +73,27 @@ class _ExpensePageState extends State<ExpensePage> {
             ),
 
             body: Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: EdgeInsets.only(top: deviceWidth * 0.03),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                         Center(
-                            child: Image.asset('asset/expenselogo.png', height: 200, width: 200,),
+                            child: Image.asset('asset/expenselogo.png', height: deviceHeight * 0.23, width: deviceHeight * 0.23,),
                         ),
 
-                        SizedBox(height: 24),
+                        SizedBox(height: deviceHeight * 0.03),
 
                         Padding(
-                            padding: EdgeInsets.only(left: 20),
-                            child: Text('Enter Amount', style: AppWidget.headlineTextStyle(20)),
+                            padding: EdgeInsets.only(left: deviceWidth * 0.05),
+                            child: Text('Enter Amount', style: AppWidget.headlineTextStyle(deviceWidth*0.055)),
                         ),
 
-                        SizedBox(height: 10),
+                        SizedBox(height: deviceWidth * 0.03),
 
                         Container(
-                            margin: EdgeInsets.only(left: 20, right: 20),
-                            padding: EdgeInsets.symmetric(horizontal: 20),
                             width: deviceWidth,
+                            margin: EdgeInsets.only(left: deviceWidth * 0.05, right: deviceWidth * 0.05),
+                            padding: EdgeInsets.symmetric(horizontal: deviceWidth*0.04),
                             
                             decoration: BoxDecoration(
                                 color: Color(0xffececf8),
@@ -102,31 +102,32 @@ class _ExpensePageState extends State<ExpensePage> {
 
                             child: TextField(
                                 controller: amountController,
+                                
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: 'Amount',
                                     hintStyle: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 18,
+                                        color: Colors.black54,
+                                        fontSize: deviceWidth*0.043,
                                         fontWeight: FontWeight.w600,
                                     ),
                                 ),
                             ),
                         ),
 
-                        SizedBox(height: 24),
+                        SizedBox(height: deviceWidth * 0.06),
 
                         Padding(
-                            padding: EdgeInsets.only(left: 20),
-                            child: Text('Select Category', style: AppWidget.headlineTextStyle(20)),
+                            padding: EdgeInsets.only(left: deviceWidth * 0.05),
+                            child: Text('Select Category', style: AppWidget.headlineTextStyle(deviceWidth*0.055)),
                         ),
 
-                        SizedBox(height: 10),
+                        SizedBox(height: deviceWidth * 0.03),
 
                         Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20),
-                            padding: EdgeInsets.symmetric(horizontal: 10),
                             width: deviceWidth,
+                            margin: EdgeInsets.symmetric(horizontal: deviceWidth*0.05),
+                            padding: EdgeInsets.symmetric(horizontal: deviceWidth*0.04),
 
                             decoration: BoxDecoration(
                                 color: Color(0xffececf8),
@@ -137,7 +138,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                 child: DropdownButton<String>(
                                     items: quizItems.map((item) => DropdownMenuItem(
                                         value: item,
-                                        child: Text(item, style: TextStyle(fontSize: 18, color: Colors.black)),
+                                        child: Text(item, style: TextStyle(color: Colors.black, fontSize: deviceWidth*0.043)),
                                     )).toList(),
 
                                     onChanged: ((value) => setState(() {
@@ -145,18 +146,18 @@ class _ExpensePageState extends State<ExpensePage> {
                                     })),
 
                                     dropdownColor: Colors.white,
-                                    hint: Text('Select Category'),
-                                    iconSize: 36,
+                                    hint: Text('Select Category', style: TextStyle(color: Colors.black54, fontSize: deviceWidth*0.043)),
+                                    iconSize: deviceWidth*0.1,
                                     icon: Icon(Icons.arrow_drop_down, color: Colors.black),
                                     value: value,
                                 ),
                             ),
                         ),
 
-                        SizedBox(height: 30),
+                        SizedBox(height: deviceWidth * 0.07),
 
                         Padding(
-                            padding: EdgeInsets.only(left: 20),
+                            padding: EdgeInsets.only(left: deviceWidth * 0.05),
                             child: Row(
                                 children: [
                                     GestureDetector(
@@ -167,15 +168,16 @@ class _ExpensePageState extends State<ExpensePage> {
                                         child: Material(
                                             elevation: 1.0,
                                             borderRadius: BorderRadius.circular(60),
+                                            
                                             child: Container(
-                                                padding: EdgeInsets.all(8.0),
+                                                padding: EdgeInsets.all(deviceWidth*0.03),
                                                 decoration: BoxDecoration(color: Color(0xffee6856), borderRadius: BorderRadius.circular(12)),
                                                 child: Icon(Icons.calendar_today, color: Colors.white),
                                             ),
                                         ),
                                     ),
 
-                                    SizedBox(width: 10),
+                                    SizedBox(width: deviceWidth * 0.03),
 
                                     Text(
                                         formattedDate,
@@ -185,12 +187,12 @@ class _ExpensePageState extends State<ExpensePage> {
                             ),
                         ),
 
-                        SizedBox(height: 30),
+                        SizedBox(height: deviceWidth * 0.1),
 
                         Center(
                             child: Container(
-                                height: 50,
-                                width: 200,
+                                height: deviceHeight * 0.053,
+                                width: deviceWidth * 0.5,
 
                                 decoration: BoxDecoration(
                                     color: Color(0xffee6856),
@@ -198,7 +200,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                 ),
 
                                 child: Center(
-                                    child: Text('Submit', style: TextStyle(fontSize: 20, color: Colors.white, fontWeight: FontWeight.bold)),
+                                    child: Text('Submit', style: TextStyle(color: Colors.white, fontSize: deviceWidth*0.055, fontWeight: FontWeight.bold)),
                                 ),
                             ),
                         ),
