@@ -47,40 +47,36 @@ class _ExpensePageState extends State<ExpensePage> {
         final deviceHeight = MediaQuery.of(context).size.height;
         
         return Scaffold(
+            backgroundColor: Colors.white,
+
+            appBar: AppBar(
+                // backgroundColor: Colors.transparent, // make it overlay your background
+                backgroundColor: Colors.white,
+                elevation: 0, // removes shadow
+                
+                leading: IconButton(
+                    icon: Icon(Icons.arrow_back, color: Colors.black),
+                    onPressed: () {
+                        Navigator.pop(context);
+                    },
+                ),
+                
+                title: Text(
+                    'Add Expense',
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: deviceWidth*0.06,
+                        fontWeight: FontWeight.bold,
+                    ),
+                ),
+                centerTitle: true,
+            ),
+
             body: Container(
-                margin: EdgeInsets.only(top: 50),
+                margin: EdgeInsets.only(top: 20),
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                        Padding(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: Row(
-                                children: [
-                                    GestureDetector(
-                                        onTap: () {
-                                            Navigator.pop(context);
-                                        },
-
-                                        child: Material(
-                                            elevation: 3.0,
-                                            borderRadius: BorderRadius.circular(60),
-                                            child: Container(
-                                                padding: EdgeInsets.all(8.0),
-                                                decoration: BoxDecoration(color: Color(0xffee6856), borderRadius: BorderRadius.circular(60)),
-                                                child: Icon(Icons.arrow_back, color: Colors.white, size: 30),
-                                            ),
-                                        ),
-                                    ),
-
-                                    SizedBox(width: 70),
-
-                                    Text('Add Expense', style: AppWidget.headlineTextStyle(24)),
-                                ],
-                            ),
-                        ),
-
-                        SizedBox(height: 30),
-
                         Center(
                             child: Image.asset('asset/expenselogo.png', height: 200, width: 200,),
                         ),
