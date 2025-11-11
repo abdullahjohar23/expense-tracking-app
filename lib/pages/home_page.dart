@@ -74,7 +74,11 @@ class _HomePageState extends State<HomePage> {
                         // Manage Your Expenses Label
                         Text(
                             'Manage Your Expenses',
-                            style: AppWidget.headlineTextStyle(deviceWidth * 0.07),
+                            style: TextStyle(
+                                color: Color(0xffee6856),
+                                fontSize: deviceWidth * 0.07,
+                                fontWeight: FontWeight.bold,
+                            ),
                         ),
                         
                         SizedBox(height: deviceHeight * 0.05),
