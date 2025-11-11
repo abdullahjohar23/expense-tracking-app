@@ -50,12 +50,6 @@ class _IncomePageState extends State<IncomePage> {
 
     String? value;
 
-    final List<String> quizItems = [
-        'Shopping',
-        'Grocery',
-        'Others',
-    ];
-
     TextEditingController amountController = new TextEditingController();
 
     @override
