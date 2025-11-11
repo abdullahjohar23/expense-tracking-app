@@ -1,6 +1,8 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:expense_tracking/services/database.dart';
 import 'package:expense_tracking/services/support_widget.dart';
+import 'package:expense_tracking/services/shared_preference.dart';
 
 class ExpensePage extends StatefulWidget {
     const ExpensePage({super.key});
@@ -10,6 +12,20 @@ class ExpensePage extends StatefulWidget {
 }
 
 class _ExpensePageState extends State<ExpensePage> {
+    String? id;
+
+    getTheSharedPref() async {
+        id = await SharedPreferenceHelper().getUserId();
+        setState(() {
+        });
+    }
+
+    @override
+    void initState() {
+        super.initState();
+        getTheSharedPref();
+    }
+
     DateTime selectedDate = DateTime.now();
 
     Future<void> _selectedDate(BuildContext context) async {
@@ -189,18 +205,30 @@ class _ExpensePageState extends State<ExpensePage> {
 
                         SizedBox(height: deviceWidth * 0.1),
 
-                        Center(
-                            child: Container(
-                                height: deviceHeight * 0.053,
-                                width: deviceWidth * 0.5,
+                        GestureDetector(
+                            onTap: () async {
+                                Map<String, dynamic> addExpense = {
+                                    'Amount': amountController.text,
+                                    'Category': value,
+                                    'Date': formattedDate,
+                                };
 
-                                decoration: BoxDecoration(
-                                    color: Color(0xffee6856),
-                                    borderRadius: BorderRadius.circular(12),
-                                ),
+                                await DatabaseMethods().addUserExpense(addExpense, id
+                            },
 
-                                child: Center(
-                                    child: Text('Submit', style: TextStyle(color: Colors.white, fontSize: deviceWidth*0.055, fontWeight: FontWeight.bold)),
+                            child: Center(
+                                child: Container(
+                                    height: deviceHeight * 0.053,
+                                    width: deviceWidth * 0.5,
+                            
+                                    decoration: BoxDecoration(
+                                        color: Color(0xffee6856),
+                                        borderRadius: BorderRadius.circular(12),
+                                    ),
+                            
+                                    child: Center(
+                                        child: Text('Submit', style: TextStyle(color: Colors.white, fontSize: deviceWidth*0.055, fontWeight: FontWeight.bold)),
+                                    ),
                                 ),
                             ),
                         ),
