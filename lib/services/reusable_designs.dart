@@ -201,7 +201,21 @@ class ProfileInfoTile extends StatelessWidget {
                 else if (navigateTo != null) {
                     Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => navigateTo!),
+                        PageRouteBuilder(
+                            transitionDuration: Duration(milliseconds: 200), // speed of animation
+                            reverseTransitionDuration: Duration(milliseconds: 200), // backward
+                            pageBuilder: (context, animation, secondaryAnimation) => navigateTo!,
+                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                const begin = Offset(1.0, 0.0); // start from right side
+                                const end = Offset.zero; // end at center
+                                final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOut));
+
+                                return SlideTransition(
+                                    position: animation.drive(tween),
+                                    child: child,
+                                );
+                            },
+                        ),
                     );
                 }
             },
