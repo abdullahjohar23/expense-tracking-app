@@ -88,12 +88,18 @@ class _IncomePageState extends State<IncomePage> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                        // Income Image
                         Center(
-                            child: Image.asset('asset/income.png', height: deviceHeight * 0.23, width: deviceHeight * 0.23,),
+                            child: Image.asset(
+                                'asset/income.png',
+                                height: deviceHeight * 0.23,
+                                width: deviceHeight * 0.23,
+                            ),
                         ),
 
                         SizedBox(height: deviceHeight * 0.03),
 
+                        // Enter Amount Label
                         Padding(
                             padding: EdgeInsets.only(left: deviceWidth * 0.05),
                             child: Text('Enter Amount', style: AppWidget.headlineTextStyle(deviceWidth*0.055)),
@@ -101,6 +107,7 @@ class _IncomePageState extends State<IncomePage> {
 
                         SizedBox(height: deviceWidth * 0.03),
 
+                        // Enter Amount TextField
                         Container(
                             width: deviceWidth,
                             margin: EdgeInsets.only(left: deviceWidth * 0.05, right: deviceWidth * 0.05),
@@ -128,6 +135,7 @@ class _IncomePageState extends State<IncomePage> {
 
                         SizedBox(height: deviceWidth * 0.06),
 
+                        // Select Date
                         Padding(
                             padding: EdgeInsets.only(left: deviceWidth * 0.05),
                             child: Row(
@@ -161,6 +169,7 @@ class _IncomePageState extends State<IncomePage> {
 
                         SizedBox(height: deviceWidth * 0.1),
 
+                        // Submit Button
                         GestureDetector(
                             onTap: () async {
                                 Map<String, dynamic> addExpense = {
