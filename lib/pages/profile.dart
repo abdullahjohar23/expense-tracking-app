@@ -1,7 +1,8 @@
-import 'package:expense_tracking/pages/expense.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:expense_tracking/pages/login.dart';
+import 'package:expense_tracking/pages/income.dart';
+import 'package:expense_tracking/pages/expense.dart';
 import 'package:expense_tracking/services/reusable_designs.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -86,7 +87,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ProfileInfoTile(text: 'abdullah@gmail.com', prefixicon: Icons.mail),
 
                         // Income
-                        ProfileInfoTile(text: 'Add Icome', prefixicon: Icons.attach_money, suffixicon: Icons.chevron_right),
+                        ProfileInfoTile(text: 'Add Icome', prefixicon: Icons.attach_money, suffixicon: Icons.chevron_right, navigateTo: IncomePage(),),
 
                         // Expense
                         ProfileInfoTile(text: 'Add Expense', prefixicon: Icons.payment, suffixicon: Icons.chevron_right, navigateTo: ExpensePage(),),
