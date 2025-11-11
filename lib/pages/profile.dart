@@ -1,3 +1,4 @@
+import 'package:expense_tracking/pages/expense.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:expense_tracking/pages/login.dart';
@@ -88,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ProfileInfoTile(text: 'Add Icome', prefixicon: Icons.attach_money, suffixicon: Icons.chevron_right),
 
                         // Expense
-                        ProfileInfoTile(text: 'Add Expense', prefixicon: Icons.payment, suffixicon: Icons.chevron_right),
+                        ProfileInfoTile(text: 'Add Expense', prefixicon: Icons.payment, suffixicon: Icons.chevron_right, navigateTo: ExpensePage(),),
 
                         // Logout
                         ProfileInfoTile(text: 'Logout', prefixicon: Icons.logout, suffixicon: Icons.chevron_right, onTap: logout,),
