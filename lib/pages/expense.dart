@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracking/services/database.dart';
 import 'package:expense_tracking/services/support_widget.dart';
+import 'package:expense_tracking/services/reusable_designs.dart';
 import 'package:expense_tracking/services/shared_preference.dart';
 
 class ExpensePage extends StatefulWidget {
@@ -213,7 +214,11 @@ class _ExpensePageState extends State<ExpensePage> {
                                     'Date': formattedDate,
                                 };
 
-                                await DatabaseMethods().addUserExpense(addExpense, id
+                                await DatabaseMethods().addUserExpense(addExpense, id!);
+
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    ScaffoldText.show('Expenes Added Successfully!', Colors.green, context),
+                                );
                             },
 
                             child: Center(
