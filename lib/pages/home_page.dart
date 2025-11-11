@@ -25,39 +25,35 @@ class _HomePageState extends State<HomePage> {
                         Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                                // User's Name
                                 Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                        Text(
-                                            'Welcome Back',
-                                            style: TextStyle(color: Colors.grey, fontSize: deviceWidth * 0.045, fontWeight: FontWeight.w500),
-                                        ),
+                                        Text('Welcome Back', style: TextStyle(color: Colors.grey, fontSize: deviceWidth * 0.045, fontWeight: FontWeight.w500),),
 
-                                        Text(
-                                            'Random User',
-                                            style: AppWidget.headlineTextStyle(deviceWidth*0.06),
-                                        ),
+                                        Text('Random User', style: AppWidget.headlineTextStyle(deviceWidth*0.06),),
                                     ],
                                 ),
 
+                                // Profile Image & Navigator
                                 GestureDetector(
                                     onTap: () {
                                         Navigator.push(
                                             context,
                                             PageRouteBuilder(
-                                            transitionDuration: Duration(milliseconds: 200), // speed of animation
-                                            reverseTransitionDuration: Duration(milliseconds: 200), // backward
-                                            pageBuilder: (context, animation, secondaryAnimation) => ProfilePage(),
-                                            transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                                const begin = Offset(1.0, 0.0); // start from right side
-                                                const end = Offset.zero; // end at center
-                                                final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOut));
+                                                transitionDuration: Duration(milliseconds: 200), // speed of animation
+                                                reverseTransitionDuration: Duration(milliseconds: 200), // backward
+                                                pageBuilder: (context, animation, secondaryAnimation) => ProfilePage(),
+                                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                                    const begin = Offset(1.0, 0.0); // start from right side
+                                                    const end = Offset.zero; // end at center
+                                                    final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOut));
 
-                                                return SlideTransition(
-                                                    position: animation.drive(tween),
-                                                    child: child,
-                                                );
-                                            },
+                                                    return SlideTransition(
+                                                        position: animation.drive(tween),
+                                                        child: child,
+                                                    );
+                                                },
                                             ),
                                         );
                                     },
@@ -75,13 +71,15 @@ class _HomePageState extends State<HomePage> {
 
                         SizedBox(height: deviceHeight * 0.05),
 
+                        // Manage Your Expenses Label
                         Text(
-                            'Magege Your Expenses',
+                            'Manage Your Expenses',
                             style: AppWidget.headlineTextStyle(deviceWidth * 0.07),
                         ),
                         
                         SizedBox(height: deviceHeight * 0.05),
 
+                        // Expense Box with Pie Chart
                         Container(
                             width: deviceWidth,
                             padding: EdgeInsets.symmetric(horizontal: deviceWidth * 0.04, vertical: deviceHeight * 0.01),
