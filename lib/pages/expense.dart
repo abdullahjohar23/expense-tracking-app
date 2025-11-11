@@ -216,6 +216,10 @@ class _ExpensePageState extends State<ExpensePage> {
 
                                 await DatabaseMethods().addUserExpense(addExpense, id!);
 
+                                setState(() {
+                                    amountController.text = ""; // so that user can add another expense
+                                });
+
                                 ScaffoldMessenger.of(context).showSnackBar(
                                     ScaffoldText.show('Expenes Added Successfully!', Colors.green, context),
                                 );
