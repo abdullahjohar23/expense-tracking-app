@@ -172,20 +172,19 @@ class _IncomePageState extends State<IncomePage> {
                         // Submit Button
                         GestureDetector(
                             onTap: () async {
-                                Map<String, dynamic> addExpense = {
+                                Map<String, dynamic> addIncome = {
                                     'Amount': amountController.text,
-                                    'Category': value,
                                     'Date': formattedDate,
                                 };
 
-                                await DatabaseMethods().addUserExpense(addExpense, id!);
+                                await DatabaseMethods().addUserExpense(addIncome, id!);
 
                                 setState(() {
                                     amountController.text = ""; // so that user can add another expense
                                 });
 
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    ScaffoldText.show('Expenes Added Successfully!', Colors.green, context),
+                                    ScaffoldText.show('Income Added Successfully!', Colors.green, context),
                                 );
                             },
 
