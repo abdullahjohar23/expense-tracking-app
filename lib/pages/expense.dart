@@ -94,12 +94,18 @@ class _ExpensePageState extends State<ExpensePage> {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                        // Income Image
                         Center(
-                            child: Image.asset('asset/expenselogo.png', height: deviceHeight * 0.23, width: deviceHeight * 0.23,),
+                            child: Image.asset(
+                                'asset/expenselogo.png',
+                                height: deviceHeight * 0.23,
+                                width: deviceHeight * 0.23,
+                            ),
                         ),
 
                         SizedBox(height: deviceHeight * 0.03),
 
+                        // Enter Amount Label
                         Padding(
                             padding: EdgeInsets.only(left: deviceWidth * 0.05),
                             child: Text('Enter Amount', style: AppWidget.headlineTextStyle(deviceWidth*0.055)),
@@ -107,6 +113,7 @@ class _ExpensePageState extends State<ExpensePage> {
 
                         SizedBox(height: deviceWidth * 0.03),
 
+                        // Enter Amount TextField
                         Container(
                             width: deviceWidth,
                             margin: EdgeInsets.only(left: deviceWidth * 0.05, right: deviceWidth * 0.05),
@@ -134,6 +141,7 @@ class _ExpensePageState extends State<ExpensePage> {
 
                         SizedBox(height: deviceWidth * 0.06),
 
+                        // Select Category Label
                         Padding(
                             padding: EdgeInsets.only(left: deviceWidth * 0.05),
                             child: Text('Select Category', style: AppWidget.headlineTextStyle(deviceWidth*0.055)),
@@ -141,6 +149,7 @@ class _ExpensePageState extends State<ExpensePage> {
 
                         SizedBox(height: deviceWidth * 0.03),
 
+                        // Select Category Section
                         Container(
                             width: deviceWidth,
                             margin: EdgeInsets.symmetric(horizontal: deviceWidth*0.05),
@@ -173,6 +182,7 @@ class _ExpensePageState extends State<ExpensePage> {
 
                         SizedBox(height: deviceWidth * 0.07),
 
+                        // Select Date
                         Padding(
                             padding: EdgeInsets.only(left: deviceWidth * 0.05),
                             child: Row(
@@ -206,6 +216,7 @@ class _ExpensePageState extends State<ExpensePage> {
 
                         SizedBox(height: deviceWidth * 0.1),
 
+                        // Submit Button
                         GestureDetector(
                             onTap: () async {
                                 Map<String, dynamic> addExpense = {
