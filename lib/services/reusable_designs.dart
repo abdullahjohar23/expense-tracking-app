@@ -174,12 +174,14 @@ class ProfileInfoTile extends StatelessWidget {
     final IconData prefixicon;
     final IconData? suffixicon;
     final VoidCallback? onTap;
+    final Widget? navigateTo;
 
     const ProfileInfoTile({
         required this.text,
         required this.prefixicon,
         this.suffixicon,
         this.onTap,
+        this.navigateTo,
         super.key
     });
 
@@ -189,7 +191,20 @@ class ProfileInfoTile extends StatelessWidget {
         final deviceHeight = MediaQuery.of(context).size.height;
 
         return GestureDetector(
-            onTap: onTap,
+            onTap: () {
+                // If custom onTap is given, use that
+                if (onTap != null) {
+                    onTap!();
+                }
+                
+                // Otherwise, navigate if navigateTo is provided
+                else if (navigateTo != null) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => navigateTo!),
+                    );
+                }
+            },
             
             child: Container(
                 height: deviceHeight * 0.06,
