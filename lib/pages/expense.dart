@@ -232,7 +232,7 @@ class _ExpensePageState extends State<ExpensePage> {
                                 });
 
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                    ScaffoldText.show('Expenes Added Successfully!', Colors.green, context),
+                                    ScaffoldText.show('Expense Added Successfully!', Colors.green, context),
                                 );
                             },
 
